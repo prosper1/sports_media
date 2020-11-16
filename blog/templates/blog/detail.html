@@ -1,0 +1,46 @@
+{% extends 'blog/bases.html' %}
+
+{% block content %}
+
+
+			<!-- technology-top -->
+
+			 <div class="tc-ch wow fadeInDown animated" data-wow-duration=".8s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+
+					<div class="tch-img">
+						<a href="singlepage.html"><img src="{{ post.model_pic.url }}" class="img-responsive" alt=""></a>
+					</div>
+
+					<h3><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h3>
+					<h6>BY <a href="singlepage.html">{{post.author}} </a>{{post.published_date}}.</h6>
+
+					{{post.content|safe}}
+                        <div align="center">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- uni -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:250px;height:100px"
+     data-ad-client="ca-pub-6581313795321939"
+     data-ad-slot="2436234269"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+                        </div>
+						<div class="bht1">
+							<a href="{% url 'post_detail' pk=post.pk %}"> Next</a>
+						</div>
+						<div class="soci">
+							<ul>
+								<li class="hvr-rectangle-out"><a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.creativesmakhado.co.za/{% url 'post_detail' pk=post.pk %}"></a></li>
+								<li class="hvr-rectangle-out"><a class="twit" href="https://twitter.com/home?status={{ post.title }}%20http://www.creativesmakhado.co.za{% url 'post_detail' pk=post.pk %}"></a></li>
+								<li class="hvr-rectangle-out"><a class="goog" href="https://plus.google.com/share?url=https://www.creativesmakhado.co.za{% url 'post_detail' pk=post.pk %}""></a></li>
+								<li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>
+								<li class="hvr-rectangle-out"><a class="drib" href="#"></a></li>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+			</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% for post in posts %}
+
+<!-- BLOG POST -->
+						<div class="blog_post margbot70 clearfix" data-animated="fadeInUp">
+							<div class="blog_post_img">
+								<img src="{{post.model_pic.url}}" alt="" />
+							</div>
+							<div class="blog_post_descr">
+								<div class="blog_post_date">{{post.published_date | date:"F"}} {{post.published_date | date:"d"}} | 21:30</div>
+								<a class="blog_post_title" href="{% url 'post_detail' pk=post.pk %}" >{{post.title}}</a>
+								<ul class="blog_post_info">
+									<li class="author"><a href="javascript:void(0);" >{{post.author}}</a></li>
+									<li><a href="javascript:void(0);" >{{post.category}}</a></li>
+									<li><a href="javascript:void(0);" >3 Comments</a></li>
+								</ul>
+								<hr>
+								<div class="blog_post_content">{{post.discription|truncatewords:20}}</div>
+								<a class="read_more_btn" href="{% url 'post_detail' pk=post.pk %}" >Read More</a>
+							</div>
+						</div><!-- //BLOG POST -->
+		
+		{% endfor %}
+		{% if posts.has_other_pages %}
+  <ul class="pagination clearfix">
+    {% if posts.has_previous %}
+      <li><a href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in posts.paginator.page_range %}
+      {% if posts.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if posts.has_next %}
+      <li><a href="?page={{ posts.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}

@@ -1,0 +1,121 @@
+{% extends 'blog/bases.html' %}
+
+{% block content %}
+
+<div class="technology-left ">
+		<div class="tech-no">
+			<!-- technology-top -->
+
+			 <div class="tc-ch wow fadeInDown animated" data-wow-duration=".8s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+
+					<div class="tch-img">
+						<a href="{% url 'post_detail' pk=post.pk %}"><img src="{{ post.model_pic.url }}" class="img-responsive" alt=""></a>
+					</div>
+
+					<h3><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h3>
+					<h6>BY <a href="singlepage.html">{{post.author}} </a>{{post.published_date}}.</h6>
+				 <p>{{post.discription}}</p>
+						<p>{{post.text_one}}</p>
+						{% if post.aline is True %}
+							<div class="row">
+							<div class="col-md-6">
+								<a href="{{post.image_one.url}}"><img src="{{post.image_one.url}}" class="img-responsive" alt="" width="100%"></a>
+							</div>
+							<div class="col-md-6">
+								<a href="{{post.image_one.url}}"><img src="{{post.image_two.url}}" class="img-responsive" alt="" width="100%"></a>
+							</div>
+							</div>
+						{% else %}
+							<div class="tch-img">
+								<a href="{{post.image_one.url}}"><img src="{{post.image_one.url}}" class="img-responsive" alt=""></a>
+							</div>
+							<div class="tch-img">
+								<a href="{{post.image_two.url}}"><img src="{{post.image_two.url}}" class="img-responsive" alt=""></a>
+							</div>
+						{% endif  %}
+						<p>{{post.text_two}}</p>
+						{% if post.aline_two %}
+							<div class="col-md-5">
+								<a href="{{post.image_three.url}}"><img src="{{post.image_three.url}}" class="img-responsive" alt=""></a>
+							</div>
+							<div class="col-md-5">
+								<a href="{{post.image_four.url}}"><img src="{{post.image_four.url}}" class="img-responsive" alt=""></a>
+							</div>
+						{% else %}
+							<div class="tch-img">
+								<a href="{{post.image_three.url}}"><img src="{{post.image_three.url}}" class="img-responsive" alt=""></a>
+							</div>
+							<div class="tch-img">
+								<a href="{{post.image_four.url}}"><img src="{{post.image_four.url}}" class="img-responsive" alt=""></a>
+							</div>
+						{% endif  %}
+						<p>{{post.text_three}}</p>
+						{% if post.aline_three %}
+							<div class="col-md-5">
+								<a href="{{post.image_five.url}}"><img src="{{post.image_five.url}}" class="img-responsive" alt=""></a>
+							</div>
+							<div class="col-md-5">
+								<a href="{{post.image_six.url}}"><img src="{{post.image_six.url}}" class="img-responsive" alt=""></a>
+							</div>
+						{% else %}
+							<div class="tch-img">
+								<a href="{{post.image_five.url}}"><img src="{{post.image_five.url}}" class="img-responsive" alt=""></a>
+							</div>
+							<div class="tch-img">
+								<a href="{{post.image_six.url}}"><img src="{{post.image_six.url}}" class="img-responsive" alt=""></a>
+							</div>
+						{% endif %}
+
+						{% if post.aline_vid is True %}
+						<br>
+						<p>watch video here</p><a href="{{post.vid}}">{{post.vid}}</a>
+						<br>
+						{% endif%}
+
+
+
+						<p>{{post.text_four}}</p>
+						{% if post.image_seven %}
+						<div class="tch-img">
+								<a href="{{post.image_five.url}}"><img src="{{post.image_seven.url}}" class="img-responsive" alt=""></a>
+							</div>
+						{% else %}
+						<br>
+						{% endif %}
+						<p>{{post.text_five}}</p>
+						{% if post.image_eight %}
+						<div class="tch-img">
+								<a href="{{post.image_five.url}}"><img src="{{post.image_eight.url}}" class="img-responsive" alt=""></a>
+							</div>
+						{% else %}
+						<br>
+						{% endif%}
+						<p>{{post.text_six}}</p>
+						{% if post.image_nine %}
+						<div class="tch-img">
+								<a href="{{post.image_nine.url}}"><img src="{{post.image_nine.url}}" class="img-responsive" alt=""></a>
+							</div>
+						{% else %}
+						<br>
+						{% endif%}
+						<p>{{post.text_seven}}</p>
+
+
+						<div class="bht1">
+							<a href="{% url 'post_detail' pk=post.pk %}"> Share</a>
+						</div>
+						<div class="soci">
+							<ul>
+								<li class="hvr-rectangle-out"><a class="fb fb-share-button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"></a></li>
+								<li class="hvr-rectangle-out"><a class="twit" href="https://twitter.com/home?status={{ post.discription }}%20{{ request.build_absolute_uri }}"></a></li>
+								<li class="hvr-rectangle-out"><a class="goog" href="https://plus.google.com/share?url={{ request.build_absolute_uri }}"></a></li>
+								<li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>
+								<li class="hvr-rectangle-out"><a class="drib" href="#"></a></li>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+			</div>
+		</div></div>
+
+
+{% endblock %}

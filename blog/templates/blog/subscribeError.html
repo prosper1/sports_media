@@ -1,0 +1,335 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/Article">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>CreativesMakhado | {{post.title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Place this data between the <head> tags of your website -->
+<meta name="description" content="{{ post.discription }}" />
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="{{post.title}}">
+<meta itemprop="description" content="{{ post.discription }}">
+<meta itemprop="image" content="http://www.creativesmakhado.co.za{{ post.model_pic.url }}">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="{{post.title}}">
+<meta name="twitter:site" content="http://www.creativesmakhado.co.za">
+<meta name="twitter:title" content="{{post.title}}">
+<meta name="twitter:description" content="{{ post.discription }}">
+<meta name="twitter:creator" content="@creatives_m">
+<!-- Twitter summary card with large image must be at least 280x150px -->
+<meta name="twitter:image:src" content="http://www.creativesmakhado.co.za{{ post.model_pic.url }}">
+
+
+<!-- Open Graph data -->
+<meta property="og:title" content="{{post.title}}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.creativesmakhado.co.za/post/{{post.pk}}" />
+<meta property="og:image" content="http://www.creativesmakhado.co.za{{ post.model_pic.url }}" />
+<meta property="og:description" content="{{ post.discription }}" />
+<meta property="og:site_name" content="Creatives Makhado" />
+<meta property="article:published_time" content="{{post.published_date}}" />
+<meta property="article:modified_time" content="{{post.published_date}}" />
+<meta property="article:section" content="Article Section" />
+<meta property="article:tag" content="{{post.category}}" />
+<meta name="keywords" content="South africa fashion ,umswenko ,blog ,creatives ,brands ,tech , music ,art ,fashion ,pretoria fashion , bambata ,dead ,docc ,headhancho ,me " />
+
+
+
+	<link rel="shortcut icon" href="{% static 'images/logo.png' %}">
+
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'css/flexslider.css' %}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'css/prettyPhoto.css' %}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+
+	<!-- FONTS -->
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-80265029-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-80265029-1');
+</script>
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-6581313795321939",
+          enable_page_level_ads: true
+     });
+</script>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<img id="preloader" src="{% static 'images/preloader.gif' %}" alt="" />
+<!-- //PRELOADER -->
+<div>
+
+	<!-- PAGE -->
+	<div id="page" class="single_page">
+
+		<!-- HEADER -->
+		<header>
+
+			<!-- MENU BLOCK -->
+			<div class="menu_block">
+
+				<!-- CONTAINER -->
+				<div class="container clearfix">
+
+					<!-- LOGO -->
+					<div class="logo pull-left">
+						<a href="/" ><img src="{% static 'images/logo.png' %}" width="98px" height="92px" alt="" /></a>
+					</div><!-- //LOGO -->
+
+					<!-- MENU -->
+					<div class="pull-right">
+						<nav class="navmenu center">
+							<ul>
+								<li class="first scroll_btn"><a href="\" >Home</a></li>
+								<li class="scroll_btn"><a href="{% url 'about' %}" >About</a></li>
+								<li class="scroll_btn active red_bg"><a href="{% url 'post_list' %}" >Posts</a></li>
+								<li class="scroll_btn"><a href="#team" >Profiles</a></li>
+								<li class="scroll_btn red_bg"><a href="{% url 'policy' %}" >Policy</a></li>
+								<li class="scroll_btn last"><a href="#contacts" >Contacts</a></li>
+							</ul>
+						</nav>
+					</div><!-- //MENU -->
+				</div><!-- //MENU BLOCK -->
+			</div><!-- //CONTAINER -->
+		</header><!-- //HEADER -->
+
+
+		<!-- BLOG -->
+		<section id="blog">
+
+			<!-- CONTAINER -->
+			<div class="container">
+
+				<!-- ROW -->
+				<div class="row">
+
+					<!-- BLOG BLOCK -->
+					<div class="blog_block col-lg-9 col-md-9 padbot50">
+
+						<!-- SINGLE BLOG POST -->
+						<div class="single_blog_post clearfix" data-animated="fadeInUp">
+							<div class="clearfix">
+								<div class="single_blog_post_date"><span>{{post.published_date | date:"d"}}</span>{{post.published_date | date:"F"}}</div>
+								<div class="single_blog_post_descr">
+									<div class="single_blog_post_title">Only {% for m in msg %} {{m.name}} {% endfor %} users can read this article</div>
+									<ul class="single_blog_post_info">
+										<li class="author"><a href="javascript:void(0);" >{{post.author}}</a></li>
+										<li><a href="javascript:void(0);" >{{post.category}}</a></li>
+										<li><a href="javascript:void(0);" >Comments</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="single_blog_post_img"><img src="{{post.model_pic.url}}" alt="" /></div>
+							<input type="hidden" name="pk" id="js-pk" value="{{post.pk}}">
+
+							<div class="single_blog_post_content">
+								{{post.content|safe}}
+							</div>
+
+						</div><!-- //SINGLE BLOG POST -->
+
+
+						
+
+					<!-- SIDEBAR -->
+					<div class="sidebar col-lg-3 col-md-3 padbot50">
+
+						<!-- SEARCH WIDGET -->
+						<div class="sidepanel widget_search">
+							<form class="search_form" action="#" method="get" name="search_form">
+								<input type="text" name="Search the site..." value="Search the site..." onFocus="if (this.value == 'Search the site...') this.value = '';" onBlur="if (this.value == '') this.value = 'Search the site...';" />
+								<input class="search_btn" type="submit" value="Search!">
+							</form>
+						</div><!-- //SEARCH WIDGET -->
+
+						<!-- META WIDGET -->
+						<div class="sidepanel widget_meta">
+							<ul>
+							{% for category in categories %}
+								<li><a href="{% url 'category' category.name %}" >{{category.name}}</a></li>
+							{% endfor %}
+
+							</ul>
+						</div><!-- //META WIDGET -->
+
+
+						<!-- TEXT WIDGET -->
+						<div class="sidepanel widget_text">
+							<div class="sidepanel_title">About platform</div>
+							<p>A platform dedicated to discovering talented people</p>
+						</div><!-- //TEXT WIDGET -->
+
+
+						<!-- POPULAR POSTS WIDGET -->
+						<div class="sidepanel widget_popular_posts">
+						{% for post in other %}
+							<div class="recent_posts_widget clearfix">
+								<a class="post_item_img_widget" href="{% url 'post_detail' pk=post.pk %}" >
+									<img src="{{post.model_pic.url}}" alt="" />
+								</a>
+								<div class="post_item_content_widget">
+									<a class="post_title" href="{% url 'post_detail' pk=post.pk %}" >{{post.title|truncatechars:30}}</a>
+									<ul class="post_item_inf_widget">
+										<li>{{post.published_date | date:"F d, Y"}}</li>
+									</ul>
+								</div>
+							</div>
+							{% endfor %}
+
+						</div><!-- //POPULAR POSTS WIDGET -->
+
+
+						<!-- POPULAR TAGS WIDGET -->
+						<div class="sidepanel widget_tags">
+							<ul>
+								<li class="active"><a href="javascript:void(0);" >Fashion</a></li>
+								
+								<li><a href="javascript:void(0);" >Creative Agency</a></li>
+								<li><a href="javascript:void(0);" >Art</a></li>
+								<li><a href="javascript:void(0);" >Music</a></li>
+								<li><a href="javascript:void(0);" >Painting</a></li>
+							</ul>
+						</div><!-- //POPULAR TAGS WIDGET -->
+					</div><!-- //SIDEBAR -->
+				</div><!-- //ROW -->
+			</div><!-- //CONTAINER -->
+		</section><!-- //BLOG -->
+
+
+		<!-- FOOTER -->
+		<footer>
+
+			<!-- CONTAINER -->
+			<div class="container">
+
+				<!-- ROW -->
+				<div class="row">
+
+					<a class="back_top" href="javascript:void(0);" ><i class="fa fa-chevron-up"></i></a>
+
+					<div class="col-lg-3 col-md-4 col-sm-4 footer_phone">
+						
+						
+					</div>
+
+					<div class="col-lg-6 col-md-4 col-sm-4 padbot30 center copyright">
+						<a href="mailto:creativesmakhado@gmail.com" ><i class="fa fa-envelope"></i> creativesmakhado@gmail.com</a>
+						<p>Creatives Makhado © .</p>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-sm-4 padbot30 right">
+						<div class="social">
+							<a class="twitter" href="https://twitter.com/creatives_m" ><i class="fa fa-twitter"></i></a>
+							<a class="facebook" href="https://www.facebook.com/creativesmakhado" ><i class="fa fa-facebook"></i></a>
+							<a class="g_plus" href="https://plus.google.com/+CreativesMakhado" ><i class="fa fa-google-plus"></i></a>
+
+						</div>
+					</div>
+				</div><!-- //ROW -->
+			</div><!-- //CONTAINER -->
+		</footer><!-- //FOOTER -->
+	</div><!-- //PAGE -->
+</div>
+
+	<!-- SCRIPTS -->
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if IE]><html class="ie" lang="en"> <![endif]-->
+	<script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/jquery.prettyPhoto.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/jquery.stellar.min.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/jquery.flexslider-min.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/jquery.jcarousel.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/jquery.mb.YTPlayer.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/animate.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/jquery.timer.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/jquery.twitter.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+	<script src="{% static 'js/jquery.form.js' %}"></script>
+	<script src="{% static 'js/myscript.js' %}" type="text/javascript"></script>
+	<script>
+
+      var $input = $('#js-name');
+      var $inputs = $('#js-text');
+      var $inputts = $('#js-email');
+      var $pk = $('#js-pk')
+      var $sayButton = $('.js-say');
+
+
+
+      $.ajaxSetup({
+     beforeSend: function(xhr, settings) {
+         function getCookie(name) {
+             var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                     var cookie = jQuery.trim(cookies[i]);
+                     // Does this cookie string begin with the name we want?
+                     if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                         break;
+                     }
+                 }
+             }
+             return cookieValue;
+         }
+         if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+             // Only send the token to relative URLs i.e. locally.
+             xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+         }
+     }
+});
+
+
+      function submitInput() {
+
+      $.ajax({
+         url: '/api/comments/',
+         type: "POST",
+         data: {"name":$input.val(), "content": $inputs.val(), "email": $inputts.val(), "blog": $pk.val()},
+         dataType:'json',
+         success: function (response) {
+         console.log(response);
+          },
+         error: function(error){
+         console.log("Something went wrong", error);
+          }
+       });
+
+
+      }
+
+      $sayButton.click(function() {
+        submitInput();
+        $input.val('');
+            $inputs .val('');
+        getInput();
+
+      });
+
+    </script>
+
+
+</body>
+
+
+</html>

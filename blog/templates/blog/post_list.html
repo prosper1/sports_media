@@ -1,0 +1,284 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Creatives Makhado| Home </title>
+<title>Creatives Makhado| Home </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta property="og:url"           content="http://creativesmakhado.co.za" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="{{post.title}}" />
+<meta property="og:description"   content="{{ post.discription }}" />
+<meta property="og:image"         content="{{post.model_pic.url}}" />
+<meta name="keywords" content="South africa fashion ,umswenko ,blog ,creatives ,brands ,tech" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<!--<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' /> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'css/cool.css' %}" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="{% static 'css/smoothbox.css' %}" type='text/css' >
+<!-- //Custom Theme files -->
+<!-- js -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- //js -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- //web font -->
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6581313795321939",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+<body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-80265029-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	<div class="creatblogls-banner">
+		<div class="center-container">
+			<div class="navigation">
+				<div class="container">
+					<div class="agileits-logo">
+						<h1><a href="index.html">Creatives Makhado <span class="creatblog">Art /Music /Fashion /Photography /Videos</span></a></h1>
+					</div>
+					<div class="navigation-right">
+						<span class="menu"><img src="{% static 'images/menu.png' %}" alt=" " /></span>
+						<nav class="link-effect-3" id="link-effect-3">
+							<ul class="nav1 nav">
+								<li class="active"><a data-hover="Home" href="index.html">Home</a></li>
+								<li><a href="{% url 'post_list' %}"  data-hover="Blogs">Blogs</a></li>
+								<li><a href="#agents" class="scroll" data-hover="Brands">Brands</a></li>
+								<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-hover="More">More <span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a data-hover="Policy" href="{% url 'policy' %}" >Policy</a></li>
+										<li><a data-hover="About" href="{% url 'about' %}" >About</a></li>
+									</ul>
+								</li>
+								<li><a data-hover="Contact" href="#contact" class="scroll">Contact</a></li>
+							</ul>
+						</nav>
+							<!-- script-for-menu -->
+							<script>
+							   $( "span.menu" ).click(function() {
+								 $( "ul.nav1" ).slideToggle( 300, function() {
+								 // Animation complete.
+								  });
+								 });
+							</script>
+							<!-- //script-for-menu -->
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+	<!-- about -->
+	<!-- Latest stories -->
+			<div class="technology">
+	<div class="container">
+		<div class="col-md-9 technology-left">
+		<div class="tech-no">
+			<!-- technology-top -->
+			<div class="w3ls">
+				{% for post in posts %}
+				<div class="col-md-6 w3ls-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+					 <div class="tc-ch">
+						<div class="tch-img">
+							<a href="{% url 'post_detail' pk=post.pk %}">
+							<img src="{{post.model_pic.url }}" width="100%" height="340px" alt=""></a>
+						</div>
+
+						<h3><a href="{% url 'post_detail' pk=post.pk %}">{{post.title|truncatechars:52}}</a></h3>
+						<h6>BY <a href="{% url 'post_detail' pk=post.pk %}">{{post.author}} </a>{{post.published_date}}.</h6>
+							<p>{{post.discription|truncatewords:26}}</p>
+							<div class="bht1">
+								<a href="{% url 'post_detail' pk=post.pk %}">Read More</a>
+							</div>
+							<div class="soci">
+								<ul>
+									<li class="hvr-rectangle-out"><a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.creativesmakhado.co.za/{% url 'post_detail' pk=post.pk %}"></a></li>
+									<li class="hvr-rectangle-out"><a class="twit" href="https://twitter.com/home?status={{ post.discription }}%20{{ request.build_absolute_uri }}"></a></li>
+								</ul>
+							</div>
+							<div class="clearfix"></div>
+					</div>
+				</div>
+				{% endfor %}
+				<div class="clearfix"></div>
+			</div>
+			<!-- technology-top -->
+			{% for post in blog %}
+			<div class="wthree">
+				 <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+					<div class="tch-img">
+							<a href="{% url 'post_detail' pk=post.pk %}"><img src="{{post.model_pic.url}}" class="img-responsive" alt=""></a>
+						</div>
+				 </div>
+				 <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+						<h3><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h3>
+						<h6>BY <a href="{% url 'post_detail' pk=post.pk %}">{{post.author}} </a>{{post.published_date}}.</h6>
+							<p>{{post.discription|truncatewords:20}}.</p>
+							<div class="bht1">
+								<a href="{% url 'post_detail' pk=post.pk %}">Read More</a>
+							</div>
+							<div class="soci">
+								<ul>
+
+									<li class="hvr-rectangle-out"><a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.creativesmakhado.co.za/{% url 'post_detail' pk=post.pk %}"></a></li>
+									<li class="hvr-rectangle-out"><a class="twit" href="https://twitter.com/home?status={{ post.discription }}%20{{ request.build_absolute_uri }}"></a></li>
+								</ul>
+							</div>
+							<div class="clearfix"></div>
+
+				 </div>
+					<div class="clearfix"></div>
+			</div>
+			{% endfor %}
+			</div>
+		</div>
+		<!-- technology-right -->
+		<div class="col-md-3 technology-right">
+
+
+				<div class="blo-top1">
+
+					<div class="tech-btm">
+					<div class="search-1 wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+							<form action="#" method="post">
+								<input type="search" name="Search" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
+								<input type="submit" value=" ">
+							</form>
+						</div>
+					<h4>Other Posts </h4>
+						{% for post in other %}
+						<div class="blog-grids wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+							<div class="row">
+								<div class="blog-grid-left">
+								<a href="{% url 'post_detail' pk=post.pk %}"><img src="{{post.model_pic.url}}" class="img-responsive" alt=""></a>
+							</div>
+							<div class="blog-grid-right">
+
+								<h5><a href="{% url 'post_detail' pk=post.pk %}">{{post.title|truncatechars:25}}</a> </h5>
+							</div>
+							</div>
+
+							<div class="clearfix"> </div>
+						</div>
+						{% endfor %}
+
+
+					<p>Tweet The following</p>
+					<div class="twt">
+
+						<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-hashtag-button twitter-hashtag-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="https://platform.twitter.com/widgets/tweet_button.b7de008f493a5185d8df1aedd62d77c6.en.html#button_hashtag=TwitterStories&amp;dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https%3A%2F%2Fp.w3layouts.com%2Fdemos%2Fduplex%2Fweb%2F&amp;size=l&amp;time=1467721486626&amp;type=hashtag" style="position: static; visibility: visible; width: 166px; height: 28px;" data-hashtag="TwitterStories"></iframe>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					</div>
+					</div>
+
+
+
+				</div>
+
+
+		</div>
+		<div class="clearfix"></div>
+		<!-- technology-right -->
+	</div>
+</div>
+
+
+	<!-- Latest stories end here -->
+	<!-- Featured music -->
+
+
+
+	<!-- Featured Brands ends herer -->
+
+	<!-- contact -->
+	<div class="contact" id="contact">
+		<div class="col-md-6 creatblog_contact_left">
+			<h3>Contact Us</h3>
+			<p>We will respond to your email in a period of 24 hours</p>
+			<form action="#" method="post">
+				<input type="text" name="Name" placeholder="Name" required="">
+				<input type="email" name="Email" placeholder="Email" required="">
+				<textarea name="Message" placeholder="Message..." required=""></textarea>
+				<input type="submit" value="Send">
+			</form>
+		</div>
+		<div class="col-md-6 creatblog_contact_right">
+			<h3><a href="index.html">Creatives Makhado </a></h3>
+			<div class="col-xs-6 creatblog_contact_right_continfo">
+				<h4>Address</h4>
+				<p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>0002 Pretoria Sunnyside </p>
+				<p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>(+27) 073 413 8918</p>
+				<p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:info@example.com">creativesmakhado@gmail.com</a></p>
+			</div>
+			<div class="col-xs-6 creatblog_contact_right_continfo">
+				<h4>Follow Us</h4>
+				<div class="agileits_social_icons">
+					<a href="#" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a>
+					<a href="#" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a>
+					<a href="#" class="icon-button google-plus"><i class="icon-google-plus"></i><span></span></a>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+			<div class="creatblog_copy_right">
+				<p>© 2017 Creatives Makhado. All rights reserved | Design by <a href="http://twitter.com/prosper_one">Gundo Prosper</a></p>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	<!-- //contact -->
+	<!-- bootstrap js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+	<!-- //bootstrap js -->
+	<!-- start-smooth-scrolling -->
+	<script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+	</script>
+	<!-- start-smooth-scrolling -->
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+				};
+			*/
+
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+			});
+	</script>
+	<!-- //here ends scrolling icon -->
+</body>
+</html>
