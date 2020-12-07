@@ -14,6 +14,9 @@ import { PredictionComponent } from './blog/prediction/prediction.component';
 import { AnalysisComponent } from './blog/analysis/analysis.component';
 import { CommentsComponent } from './blog/comments/comments.component';
 import { AddCommentComponent } from './blog/add-comment/add-comment.component';
+import { PostDetailComponent } from './blog/post-detail/post-detail.component';
+import { AnalysisDetailComponent } from './blog/analysis-detail/analysis-detail.component';
+import { PredictionDetailComponent } from './blog/prediction-detail/prediction-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { AddCommentComponent } from './blog/add-comment/add-comment.component';
     PredictionComponent,
     AnalysisComponent,
     CommentsComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    PostDetailComponent,
+    AnalysisDetailComponent,
+    PredictionDetailComponent
   ],
   imports: [
     BrowserModule,
