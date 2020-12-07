@@ -103,7 +103,7 @@ class Comments(models.Model):
             default=timezone.now)
 
     def __str__(self):
-        return self.name
+        return self.content[0:70]
 
 class Contact(models.Model):
     name = models.CharField(max_length=20)
@@ -120,3 +120,15 @@ class Profile(models.Model):
     keywords = models.ManyToManyField(Keywords, related_name="kword", related_query_name="kwords",
                                       verbose_name=u'tgs')
 
+
+class Prediction(models.Model):
+    author = models.ForeignKey('auth.User',on_delete=models.CASCADE)
+    introduction = models.CharField(max_length=100)
+    team1 = models.CharField(max_length=30)
+    team2 = models.CharField(max_length=30)
+    goals_halftime = models.IntegerField(default=0)
+    goals_fulltime = models.IntegerField(default=0)
+    conclusion = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.team1 + '-VS-' + self.team2

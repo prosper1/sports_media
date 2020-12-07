@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User 
-from .models import Post , Category, Comments
+from .models import Post , Category, Comments, Prediction
 from rest_framework import serializers
 from rest_framework import viewsets, serializers
 from rest_framework.authentication import (
@@ -10,7 +10,11 @@ from rest_framework.authentication import (
 	SessionAuthentication,
 )
 from values.models import SubscriptionPrices
-from .serializers import PostSerializer, CommentsSerializer
+from .serializers import (
+	PostSerializer,
+	CommentsSerializer,
+	PredictionSerializer,
+)
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
 
@@ -36,3 +40,10 @@ class PostViewSet(viewsets.ModelViewSet):
 	http_method_names = ['get']
 	
 
+class PredictionViewSet(viewsets.ModelViewSet):
+	serializer_class = PredictionSerializer
+	queryset = Prediction.objects.all()
+	filter_backends = (DjangoFilterBackend, SearchFilter)
+	filter_fields = ('author','team1','team2')
+	search_fields = ['author','team1','team2']
+	http_method_names = ['get']

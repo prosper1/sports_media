@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post,Profile,Comments
+from .models import Post, Profile, Comments, Prediction
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -28,4 +28,19 @@ class CommentsSerializer(serializers.ModelSerializer):
             'content',
             'post',
             'created_date'
+        )
+
+
+class PredictionSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Prediction 
+        fields = (
+            'author',
+            'introduction',
+            'team1',
+            'team2',
+            'goals_halftime',
+            'goals_fulltime',
+            'conclusion',
         )
