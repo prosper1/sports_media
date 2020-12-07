@@ -14,7 +14,6 @@ class BlogAdmin(admin.ModelAdmin):
         model = Post
 
 
-
 class CategoryAdmin(admin.ModelAdmin):
     fields = ['name', 'parent']
     list_display = ['name', 'parent']
@@ -22,7 +21,6 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class KeywordsAdmin(admin.ModelAdmin):
     fields = ['name']
-
 
 
 class InsertsAdmin(admin.ModelAdmin):

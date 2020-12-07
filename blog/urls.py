@@ -1,9 +1,12 @@
 from django.conf.urls import url
-from . import views
+from django.urls import path, include
+from .views import PostViewSet, CommentViewSet
+from rest_framework.routers import DefaultRouter
+
+api = DefaultRouter()
+api.register(r'posts',PostViewSet)
+api.register(r'comments',CommentViewSet)
 
 urlpatterns = [
-    url(r'^blog/', views.post_list, name='post_list'),
-    url(r'^lazy_load_posts/', views.lazy_load_posts, name='lazy_load_posts'),
-    url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
-    url(r'^category/(?P<name>[^\.]+)', views.category_view, name='category'),
+    path('', include(api.urls), name='api'),  
 ]
