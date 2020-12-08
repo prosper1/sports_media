@@ -33,7 +33,7 @@ class CommentViewSet(viewsets.ModelViewSet):
 
 class PostViewSet(viewsets.ModelViewSet):
 	serializer_class = PostSerializer
-	queryset = Post.objects.all()
+	queryset = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 	filter_backends = (DjangoFilterBackend, SearchFilter)
 	filter_fields = ('author','category')
 	search_fields = ['author','discription','title','content']
