@@ -1,6 +1,6 @@
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './auth/login/login.component';
@@ -17,6 +17,8 @@ import { AddCommentComponent } from './blog/add-comment/add-comment.component';
 import { PostDetailComponent } from './blog/post-detail/post-detail.component';
 import { AnalysisDetailComponent } from './blog/analysis-detail/analysis-detail.component';
 import { PredictionDetailComponent } from './blog/prediction-detail/prediction-detail.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -38,9 +40,16 @@ import { PredictionDetailComponent } from './blog/prediction-detail/prediction-d
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

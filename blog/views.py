@@ -16,6 +16,7 @@ from .serializers import (
 	PredictionSerializer,
 )
 from django_filters.rest_framework import DjangoFilterBackend
+from django.utils import timezone
 from rest_framework.filters import SearchFilter
 
 

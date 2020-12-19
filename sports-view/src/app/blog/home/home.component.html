@@ -28,32 +28,16 @@
     <div class="container">
         <div class="bg-light shadow rounded px-4 py-5 p-md-5">
             <div class="row">
-                <div class="col-md-6 col-12">
+                <div *ngFor="let item of posts" class="col-md-6 col-12">
                     <div class="demos-box text-center">
                         <a href="blog-detail.html" target="_blank">
-                            <img src="assets/messi.jpeg" class="img-fluid rounded" alt="demo-img">
+                            <img src="{{item.posts}}" class="img-fluid rounded" alt="demo-img">
                         </a>
-                        <h5 class="title text-uppercase mt-4 mb-0">Messi <span class="py-1 px-2 rounded-pill bg-danger text-white h6">NEW</span></h5>
+                        <h5 class="title text-uppercase mt-4 mb-0">{{item.title}} <span class="py-1 px-2 rounded-pill bg-danger text-white h6">NEW</span></h5>
                     </div>
                 </div><!--end col-->
 
-                <div class="col-md-6 col-12 mt-5 mt-sm-0">
-                    <div class="demos-box text-center">
-                        <a href="" target="_blank">
-                            <img src="assets/lebron.jpg" class="img-fluid rounded" alt="demo-img">
-                        </a>
-                        <h5 class="title text-uppercase mt-4 mb-0">lebron vs jordan <span class="py-1 px-2 rounded-pill bg-danger text-white h6">NEW</span></h5>
-                    </div>
-                </div><!--end col-->
-
-                <div class="col-md-6 col-12 mt-5">
-                    <div class="demos-box text-center">
-                        <a href="l" target="_blank">
-                            <img src="assets/default.jpg" class="img-fluid rounded" alt="demo-img">
-                        </a>
-                        <h5 class="title text-uppercase mt-4 mb-0">Lorch for the win <span class="py-1 px-2 rounded-pill bg-danger text-white h6">NEW</span></h5>
-                    </div>
-                </div><!--end col-->
+                
             </div><!--end row-->
         </div>
     </div>

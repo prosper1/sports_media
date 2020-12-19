@@ -8,7 +8,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const ApiUrl = 'localhost:8000/api/';
+const ApiUrl = 'http://locahost:8000/api/';
 
 @Injectable({
   providedIn: 'root'
@@ -20,31 +20,31 @@ export class PostsService {
   ) { }
 
   getPosts(): Observable<any> {
-    return this.http.get(ApiUrl + 'posts', httpOptions).pipe(
+    return this.http.get(`${ApiUrl}posts/`, httpOptions).pipe(
       tap(_ => console.log('got posts'))
     );
   }
 
   getPost(postID: number): Observable<any> {
-    return this.http.get(ApiUrl + 'posts/' + postID, httpOptions).pipe(
+    return this.http.get(`${ApiUrl}posts/${postID}`, httpOptions).pipe(
       tap(_ => console.log('got post'))
     );
   }
 
   getComments(post: number, user: any): Observable<any> {
-    return this.http.get(ApiUrl + 'comments/?user=' + user + '&post=' + post,httpOptions).pipe(
+    return this.http.get(`${ApiUrl}comments/?user=${user}&post=${post}`, httpOptions).pipe(
       tap(_ => console.log('got comments'))
     );
   }
 
   getPredictions(): Observable<any> {
-    return this.http.get(ApiUrl + 'prediction/', httpOptions).pipe(
+    return this.http.get(`${ApiUrl}prediction/`, httpOptions).pipe(
       tap(_ => console.log('got predictions'))
     );
   }
 
   getPrediction(predictionID: number): Observable<any> {
-    return this.http.get(ApiUrl + 'prediction/' + predictionID, httpOptions).pipe(
+    return this.http.get(`${ApiUrl}prediction/${predictionID}`, httpOptions).pipe(
       tap(_ => console.log('got predictions'))
     );
   }
