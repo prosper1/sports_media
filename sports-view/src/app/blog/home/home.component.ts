@@ -1,5 +1,6 @@
 import { PostsService } from './../../_services/posts.service';
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 
 
 @Component({
@@ -9,10 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-   posts = [];
+  posts = [];
 
   constructor(
     private postService: PostsService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +25,16 @@ export class HomeComponent implements OnInit {
     this.postService.getPosts().subscribe(data => {
       this.posts = data;
     });
+  }
+
+  goto(id: any): void {
+    const filteredPosts = this.posts.filter(post => post.id === id);
+    const navigationExtras: NavigationExtras = {
+      state: {
+        post: filteredPosts
+      }
+    };
+    this.router.navigate(['posts/view/', id], navigationExtras);
   }
 
 }

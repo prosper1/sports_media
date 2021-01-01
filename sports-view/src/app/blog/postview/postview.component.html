@@ -1,0 +1,140 @@
+<app-nav></app-nav>
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <!-- BLog Start -->
+            <div class="col-lg-8 col-md-6">
+                <div class="card blog blog-detail border-0 shadow rounded">
+                    <img src="{{sharedData.model_pic}}" class="img-fluid rounded-top" alt="">
+                    <div class="card-body content">
+                        <h6><i class="mdi mdi-tag text-primary mr-1"></i><a href="javscript:void(0)" class="text-primary">{{sharedData.category}}</a>, <a href="javscript:void(0)" class="text-primary"></a></h6>
+                        <div [innerHTML]="sharedData.content"></div>
+                        <div class="post-meta mt-3">
+                            <ul class="list-unstyled mb-0">
+                                <li class="list-inline-item mr-2"><a href="javascript:void(0)" class="text-muted like"><i class="mdi mdi-heart-outline mr-1"></i>33</a></li>
+                                <li class="list-inline-item"><a href="javascript:void(0)" class="text-muted comments"><i class="mdi mdi-comment-outline mr-1"></i>08</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow rounded border-0 mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title mb-0">Comment here :</h5>
+
+                        <form class="mt-3">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group position-relative">
+                                        <label>Your Comment</label>
+                                        <i data-feather="message-circle" class="fea icon-sm icons"></i>
+                                        <textarea id="message" placeholder="Your Comment" rows="5" name="message" class="form-control pl-5" required=""></textarea>
+                                    </div>
+                                </div><!--end col-->
+
+                                <div class="col-md-12">
+                                    <div class="send">
+                                    <button type="submit" class="btn btn-primary btn-block">post comment</button>
+                                    </div>
+                                </div><!--end col-->
+                            </div><!--end row-->
+                        </form><!--end form-->
+                    </div>
+                </div>
+
+                <div class="card shadow rounded border-0 mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title mb-0">Comments :</h5>
+
+                        <ul class="media-list list-unstyled mb-0">
+                            <li class="mt-4">
+                                <div class="d-flex justify-content-between">
+                                    <div class="media align-items-center">
+                                        <a class="pr-3" href="#">
+                                            <img src="images/client/01.jpg" class="img-fluid avatar avatar-md-sm rounded-circle shadow" alt="img">
+                                        </a>
+                                        <div class="commentor-detail">
+                                            <h6 class="mb-0"><a href="javascript:void(0)" class="text-dark media-heading">Lorenzo Peterson</a></h6>
+                                            <small class="text-muted">15th August, 2019 at 01:25 pm</small>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="text-muted"><i class="mdi mdi-reply"></i> Reply</a>
+                                </div>
+                                <div class="mt-3">
+                                    <p class="text-muted font-italic p-3 bg-light rounded">" There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour "</p>
+                                </div>
+                            </li>
+
+                           
+                        </ul>
+                    </div>
+                </div>
+
+                
+            </div>
+            <!-- BLog End -->
+
+            <!-- START SIDEBAR -->
+            <div class="col-lg-4 col-md-6 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <div class="card border-0 sidebar sticky-bar rounded shadow">
+                    <div class="card-body">
+                        <!-- SEARCH -->
+                        <div class="widget mb-4 pb-2">
+                            <h4 class="widget-title">Search</h4>
+                            <div id="search2" class="widget-search mt-4 mb-0">
+                                <form role="search" method="get" id="searchform" class="searchform">
+                                    <div>
+                                        <input type="text" class="border rounded" name="s" id="s" placeholder="Search Keywords...">
+                                        <input type="submit" id="searchsubmit" value="Search">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- SEARCH -->
+
+                        <!-- CATAGORIES -->
+                        <div class="widget mb-4 pb-2">
+                            <h4 class="widget-title">Catagories</h4>
+                            <ul class="list-unstyled mt-4 mb-0 blog-catagories">
+                                <li>football</li>
+                                <li>Other</li>
+                                <li>Other</li>
+                                <li>Other</li>
+                                <li>Other</li>
+                                
+                            </ul>
+                        </div>
+                        <!-- CATAGORIES -->
+
+                        <!-- RECENT POST -->
+                        <div class="widget mb-4 pb-2">
+                            <h4 class="widget-title">Recent Post</h4>
+                            <div class="mt-4">
+                                <div class="clearfix post-recent">
+                                    <div class="post-recent-thumb float-left"> <a href="jvascript:void(0)"> <img alt="img" src="images/blog/07.jpg" class="img-fluid rounded"></a></div>
+                                    <div class="post-recent-content float-left"><a href="jvascript:void(0)">messi</a><span class="text-muted mt-2">15th June, 2019</span></div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <!-- RECENT POST -->
+
+                       
+                        <!-- SOCIAL -->
+                        <div class="widget">
+                            <h4 class="widget-title">Follow us</h4>
+                            <ul class="list-unstyled social-icon mb-0 mt-4">
+                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
+                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
+                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- SOCIAL -->
+                    </div>
+                </div>
+            </div><!--end col-->
+            <!-- END SIDEBAR -->
+        </div><!--end row-->
+    </div><!--end container-->
+</section><!--end section-->
+<app-footer></app-footer>

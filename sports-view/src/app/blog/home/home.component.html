@@ -29,8 +29,8 @@
         <div class="bg-light shadow rounded px-4 py-5 p-md-5">
             <div class="row">
                 <div *ngFor="let item of posts" class="col-md-6 col-12">
-                    <div class="demos-box text-center">
-                        <a href="blog-detail.html" target="_blank">
+                    <div (click)="goto(item.id)" class="demos-box text-center">
+                        <a (click)="goto(item.id)" target="_blank">
                             <img src="{{item.model_pic}}" class="img-fluid rounded" alt="demo-img">
                         </a>
                         <h5 class="title text-uppercase mt-4 mb-0">{{item.title}} <span class="py-1 px-2 rounded-pill bg-danger text-white h6">NEW</span></h5>

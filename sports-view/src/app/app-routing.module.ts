@@ -6,10 +6,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './blog/home/home.component';
 import { AnalysisComponent } from './blog/analysis/analysis.component';
+import { PostviewComponent } from './blog/postview/postview.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'posts', component: PostsComponent},
+  { path: 'posts/view/:id', component: PostviewComponent },
   { path: 'add-post', component: AddCommentComponent},
   { path: 'predictions', component: PredictionComponent},
   { path: 'reviews', component: AnalysisComponent},

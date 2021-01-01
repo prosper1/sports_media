@@ -18,6 +18,7 @@ import { PostDetailComponent } from './blog/post-detail/post-detail.component';
 import { AnalysisDetailComponent } from './blog/analysis-detail/analysis-detail.component';
 import { PredictionDetailComponent } from './blog/prediction-detail/prediction-detail.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { PostviewComponent } from './blog/postview/postview.component';
 
 
 @NgModule({
@@ -34,9 +35,9 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     AnalysisComponent,
     CommentsComponent,
     AddCommentComponent,
-    PostDetailComponent,
     AnalysisDetailComponent,
-    PredictionDetailComponent
+    PredictionDetailComponent,
+    PostviewComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +49,9 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    NavComponent,
+    FooterComponent,
   ],
   bootstrap: [AppComponent]
 })

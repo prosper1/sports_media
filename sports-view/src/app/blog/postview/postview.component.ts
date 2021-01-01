@@ -3,17 +3,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PostsService } from 'src/app/_services/posts.service';
 
 @Component({
-  selector: 'app-post-detail',
-  templateUrl: './post-detail.component.html',
-  styleUrls: ['./post-detail.component.css']
+  selector: 'app-postview',
+  templateUrl: './postview.component.html',
+  styleUrls: ['./postview.component.css']
 })
-export class PostDetailComponent implements OnInit {
+export class PostviewComponent implements OnInit {
 
-  sharedData: any;
-
+  sharedData:any;
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
+    private route: ActivatedRoute,
     private postService: PostsService,
   ) {
     this.route.queryParams.subscribe(params => {
@@ -27,8 +26,8 @@ export class PostDetailComponent implements OnInit {
           this.sharedData = data;
         });
       }
-      })
-    }
+      });
+   }
 
   ngOnInit(): void {
   }
