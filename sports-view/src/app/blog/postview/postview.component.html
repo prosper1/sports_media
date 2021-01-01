@@ -47,15 +47,15 @@
                         <h5 class="card-title mb-0">Comments :</h5>
 
                         <ul class="media-list list-unstyled mb-0">
-                            <li class="mt-4">
+                            <li *ngFor="item of comments" class="mt-4">
                                 <div class="d-flex justify-content-between">
                                     <div class="media align-items-center">
                                         <a class="pr-3" href="#">
                                             <img src="images/client/01.jpg" class="img-fluid avatar avatar-md-sm rounded-circle shadow" alt="img">
                                         </a>
                                         <div class="commentor-detail">
-                                            <h6 class="mb-0"><a href="javascript:void(0)" class="text-dark media-heading">Lorenzo Peterson</a></h6>
-                                            <small class="text-muted">15th August, 2019 at 01:25 pm</small>
+                                            <h6 class="mb-0"><a href="javascript:void(0)" class="text-dark media-heading">{{item.user}}</a></h6>
+                                            <small class="text-muted">{{item.created_date}}</small>
                                         </div>
                                     </div>
                                     <a href="#" class="text-muted"><i class="mdi mdi-reply"></i> Reply</a>

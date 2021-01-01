@@ -10,6 +10,8 @@ import { PostsService } from 'src/app/_services/posts.service';
 export class PostviewComponent implements OnInit {
 
   sharedData:any;
+  comments = [];
+  commentCounter = 0;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -30,6 +32,13 @@ export class PostviewComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  getComment(): void {
+    this.postService.getComments(this.sharedData.id,'').subscribe(data => {
+      this.comments = data;
+      this.commentCounter = data.length;
+    });
   }
 
 }
