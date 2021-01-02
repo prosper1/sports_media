@@ -1,2 +1,26 @@
-<app-nav></app-nav>
-<app-footer></app-footer>
+<div class="card shadow rounded border-0 mt-4">
+    <div class="card-body">
+        <h5 class="card-title mb-0">Comment here :</h5>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group position-relative">
+                        <label>Your Comment</label>
+                        <i data-feather="message-circle" class="fea icon-sm icons"></i>
+                        <textarea formControlName="comment"  [ngClass]="{ 'is-invalid': submitted && f.comment.errors }" id="message" placeholder="Your Comment" rows="5" class="form-control pl-5" required></textarea>
+                        <div *ngIf="submitted && f.comment.errors" class="invalid-feedback">
+                            <div *ngIf="f.comment.errors.required">Comment is required</div>
+                        </div>
+                    </div>
+                </div><!--end col-->
+
+                <div class="col-md-12">
+                    <div class="send">
+                    <button type="submit" class="btn btn-primary btn-block">post comment</button>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+        </form><!--end form-->
+    </div>
+</div>

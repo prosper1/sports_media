@@ -9,7 +9,18 @@ import { PostsService } from 'src/app/_services/posts.service';
 })
 export class PostviewComponent implements OnInit {
 
-  sharedData:any;
+  sharedData = {
+    id: 1,
+    author: "xxxxx",
+    title: "xxxxxx",
+    discription: "xxxxx",
+    model_pic: "http://localhost:8000/media/pic_folder/IMG_9044-scaled.jpg",
+    content: "xxxx",
+    created_date: "2020-12-07T17:34:30Z",
+    subscription: [1],
+    published_date: "2020-12-07T17:35:25Z",
+    category: 'cat'
+  };
   comments = [];
   commentCounter = 0;
   constructor(
@@ -28,7 +39,9 @@ export class PostviewComponent implements OnInit {
           this.sharedData = data;
         });
       }
-      });
+    });
+
+    this.getComment()
    }
 
   ngOnInit(): void {

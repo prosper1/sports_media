@@ -37,6 +37,12 @@ export class PostsService {
     );
   }
 
+  addComments(payload: object): Observable<any> {
+    return this.http.post(`${ApiUrl}comments/`, payload ,httpOptions).pipe(
+      tap(_ => console.log('got comments'))
+    );
+  }
+
   getPredictions(): Observable<any> {
     return this.http.get(`${ApiUrl}prediction/`, httpOptions).pipe(
       tap(_ => console.log('got predictions'))

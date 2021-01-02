@@ -19,6 +19,7 @@ import { AnalysisDetailComponent } from './blog/analysis-detail/analysis-detail.
 import { PredictionDetailComponent } from './blog/prediction-detail/prediction-detail.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { PostviewComponent } from './blog/postview/postview.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -43,6 +44,8 @@ import { PostviewComponent } from './blog/postview/postview.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {

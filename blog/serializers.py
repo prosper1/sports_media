@@ -3,10 +3,14 @@ from .models import Post, Profile, Comments, Prediction
 
 
 class PostSerializer(serializers.ModelSerializer):
+    author = serializers.StringRelatedField(many=False)
+    category = serializers.StringRelatedField(many=False)
+    keywords = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Post
         fields = (
+            'id',
             'author',
             'title',
             'discription',
@@ -15,11 +19,13 @@ class PostSerializer(serializers.ModelSerializer):
             'created_date',
             'subscription',
             'published_date',
-            'category'
+            'category',
+            'keywords',
         )
 
 
 class CommentsSerializer(serializers.ModelSerializer):
+    user = serializers.StringRelatedField(many=False)
 
     class Meta:
         model = Comments

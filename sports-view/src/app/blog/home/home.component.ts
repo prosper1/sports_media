@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
         post: filteredPosts
       }
     };
-    this.router.navigate(['posts/view/', id], navigationExtras);
+    this.router.navigate(['/posts/view/', id], navigationExtras);
   }
 
 }
