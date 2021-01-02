@@ -19,7 +19,8 @@ export class PostviewComponent implements OnInit {
     created_date: "2020-12-07T17:34:30Z",
     subscription: [1],
     published_date: "2020-12-07T17:35:25Z",
-    category: 'cat'
+    category: 'cat',
+    keywords:['cat']
   };
   comments = [];
   commentCounter = 0;

@@ -38,7 +38,7 @@ export class PostsService {
   }
 
   addComments(payload: object): Observable<any> {
-    return this.http.post(`${ApiUrl}comments/`, payload ,httpOptions).pipe(
+    return this.http.post(`${ApiUrl}add-comment/`, payload ,httpOptions).pipe(
       tap(_ => console.log('got comments'))
     );
   }
