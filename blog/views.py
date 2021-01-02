@@ -14,6 +14,7 @@ from .serializers import (
 	PostSerializer,
 	CommentsSerializer,
 	PredictionSerializer,
+	CommentAddSerializer,
 )
 from django_filters.rest_framework import DjangoFilterBackend
 from django.utils import timezone
@@ -30,6 +31,18 @@ class CommentViewSet(viewsets.ModelViewSet):
 		]
 	filter_backends = (DjangoFilterBackend, SearchFilter)
 	filter_fields = ('user','post')
+	http_method_names = ['get']
+
+
+class MakeCommentViewSet(viewsets.ModelViewSet):
+	serializer_class = CommentAddSerializer
+	queryset = Comments.objects.all()
+	authentication_classes = [
+		SessionAuthentication,
+		BasicAuthentication,
+		SessionAuthentication
+		]
+	http_method_names = ['post','patch','put']
 
 
 class PostViewSet(viewsets.ModelViewSet):

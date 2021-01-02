@@ -37,6 +37,21 @@ class CommentsSerializer(serializers.ModelSerializer):
         )
 
 
+class CommentAddSerializer(serializers.ModelSerializer):
+    """
+    Created to for post purpose since user_id is needed -
+    and Comment Serializer is stringed user.
+    """
+
+    class Meta:
+        model = Comments
+        fields = (
+            'user',
+            'content',
+            'post',
+            'created_date'
+        )
+
 class PredictionSerializer(serializers.ModelSerializer):
 
     class Meta:
