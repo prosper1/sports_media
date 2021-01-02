@@ -22,17 +22,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr *ngFor="let item of predictions">
                                 <td scope="row">1</td>
                                 <th>
                                     <div class="d-flex align-items-center">
                                         <img src="images/crypto/litecoin.png" class="float-left mr-3" height="50" alt="">
-                                        <p class="mb-0 font-weight-normal h5">FCB <span class="text-muted h6">VS</span> PSG</p>
+                                        <p class="mb-0 font-weight-normal h5">{{item.team1}} <span class="text-muted h6">VS</span> {{item.team2}}</p>
                                     </div>
                                 </th>
-                                <td>1:2</td>
-                                <td class="text-success">2:2</td>
-                                <td><a href="javascript:void(0)" class="btn btn-primary">View</a></td>
+                                <td>{{item.goals_halftime}}</td>
+                                <td class="text-success">{{item.goals_fulltime}}</td>
+                                <td><button (click)="goto(item.id)" class="btn btn-primary">View</button></td>
                             </tr>
                            
                         </tbody>
