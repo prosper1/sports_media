@@ -126,9 +126,12 @@ class Prediction(models.Model):
     introduction = models.CharField(max_length=100)
     team1 = models.CharField(max_length=30)
     team2 = models.CharField(max_length=30)
-    goals_halftime = models.IntegerField(default=0)
-    goals_fulltime = models.IntegerField(default=0)
+    goals_halftime = models.CharField(max_length=5)
+    goals_fulltime = models.CharField(max_length=5)
     conclusion = models.CharField(max_length=300)
+    actual_score = models.CharField(max_length=5,blank=True)
+    match_date = models.DateTimeField(null=True)
+    created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.team1 + '-VS-' + self.team2

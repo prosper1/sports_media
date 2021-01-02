@@ -64,4 +64,6 @@ class PredictionSerializer(serializers.ModelSerializer):
             'goals_halftime',
             'goals_fulltime',
             'conclusion',
+            'match_date',
+            'actual_score'
         )
