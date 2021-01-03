@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',include(blog_urls)),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('rest-auth/',include('rest_auth.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
