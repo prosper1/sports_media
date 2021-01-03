@@ -1,2 +1,33 @@
 <app-nav></app-nav>
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <!-- BLog Start -->
+            <div class="col-lg-8 col-md-6 col-lg-offset-2">
+                <br><br>
+                <hr>
+                <h4 class="centered">{{sharedData.team1}} -VS- {{sharedData.team2}}</h4>
+                <div class="card blog blog-detail border-0 shadow rounded">
+                    <div class="card-body content">
+                        <p>PlayOffs <br> {{sharedData.match_date | date:'medium'}}</p>
+                        <p>{{sharedData.introduction}}</p>
+                        <hr>
+                        <h6>Half Time Prediction</h6>
+                        <h3 class="text-info">{{sharedData.goals_halftime}}</h3>
+                        <hr>
+                        <h6>Full Time Prediction</h6>
+                        <h3 class="text-info">{{sharedData.goals_fulltime}}</h3>
+                        <hr>
+                        <br>
+                        <p>{{sharedData.conclusion}}</p>
+    
+                    </div>
+                </div>
+
+            </div>
+            <!-- BLog End -->
+
+        </div><!--end row-->
+    </div><!--end container-->
+</section><!--end section-->
 <app-footer></app-footer>
