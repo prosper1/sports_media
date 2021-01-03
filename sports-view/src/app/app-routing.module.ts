@@ -8,6 +8,8 @@ import { HomeComponent } from './blog/home/home.component';
 import { AnalysisComponent } from './blog/analysis/analysis.component';
 import { PostviewComponent } from './blog/postview/postview.component';
 import { PredictionDetailComponent } from './blog/prediction-detail/prediction-detail.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'predictions', component: PredictionComponent},
   { path: 'predictions/view/:id', component: PredictionDetailComponent},
   { path: 'reviews', component: AnalysisComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
