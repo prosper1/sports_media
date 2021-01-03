@@ -53,6 +53,7 @@ class CommentAddSerializer(serializers.ModelSerializer):
         )
 
 class PredictionSerializer(serializers.ModelSerializer):
+    author = serializers.StringRelatedField(many=False)
 
     class Meta:
         model = Prediction 
