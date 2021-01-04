@@ -47,12 +47,23 @@ class MakeCommentViewSet(viewsets.ModelViewSet):
 
 class PostViewSet(viewsets.ModelViewSet):
 	serializer_class = PostSerializer
-	queryset = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+	queryset = Post.objects.filter(
+		published_date__lte=timezone.now(),is_review=False).order_by('-published_date')
 	filter_backends = (DjangoFilterBackend, SearchFilter)
 	filter_fields = ('author','category')
 	search_fields = ['author','discription','title','content']
 	http_method_names = ['get']
 	
+
+class ReviewViewSet(viewsets.ModelViewSet):
+	serializer_class = PostSerializer
+	queryset = Post.objects.filter(
+		published_date__lte=timezone.now(),is_review=True).order_by('-published_date')
+	filter_backends = (DjangoFilterBackend, SearchFilter)
+	filter_fields = ('author','category')
+	search_fields = ['author','discription','title','content']
+	http_method_names = ['get']
+
 
 class PredictionViewSet(viewsets.ModelViewSet):
 	serializer_class = PredictionSerializer

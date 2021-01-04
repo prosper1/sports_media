@@ -79,7 +79,7 @@ class Post(models.Model):
     category = TreeForeignKey(Category, blank=True, null=True, related_name='catt', on_delete=False)
     keywords = models.ManyToManyField(Keywords, related_name="keywordss", related_query_name="keywordss",
                                       verbose_name=u'tagss')
-
+    is_review = models.BooleanField(default=False)
 
     def publish(self):
         self.published_date = timezone.now()
