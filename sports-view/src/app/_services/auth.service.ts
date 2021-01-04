@@ -6,6 +6,13 @@ import { catchError, tap } from 'rxjs/operators';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
+
+const token = 'Token ' + localStorage.getItem('token');
+
+const userHttpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json','Authorization': token})
+};
+
 const apiUrl = 'http://localhost:8000/';
 
 @Injectable({
@@ -37,7 +44,7 @@ export class AuthService {
   }
 
   user(): Observable<any> {
-    return this.http.get(apiUrl + 'apis/user/', httpOptions).pipe(
+    return this.http.get(apiUrl + 'rest-auth/user/', userHttpOptions).pipe(
       tap(_ => console.log('got user'))
     );
   }

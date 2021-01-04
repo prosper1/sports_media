@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', res.key);
       this.router.navigate([this.returnUrl]);
       // this.toast.showSuccess('Great', 'login Successful');
-      // this.getUser();
+      this.getUser();
       console.log(res);
     }, err => {
       console.log(err);
@@ -69,11 +69,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // getUser(): void {
-  //   this.restApi.user().subscribe(data => {
-  //     localStorage.setItem('userId', data[0].id);
-  //   });
-  // }
+  getUser(): void {
+    this.authService.user().subscribe(data => {
+      localStorage.setItem('userId', data.pk);
+    });
+  }
 
 
 }

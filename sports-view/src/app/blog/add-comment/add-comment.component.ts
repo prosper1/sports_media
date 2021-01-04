@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PostsService } from 'src/app/_services/posts.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class AddCommentComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private postService: PostsService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -31,14 +33,16 @@ export class AddCommentComponent implements OnInit {
   onSubmit(): void {
     if (localStorage.getItem('token') || localStorage.getItem('userId')) {
       const payload = {
-        // user: localStorage.getItem('userId'),
-        user: 1,
+        user: localStorage.getItem('userId'),
         content: this.f.comment.value,
         post: this.postData
       }
       this.postService.addComments(payload).subscribe( res => {
         
       });
+    }
+    else {
+      this.router.navigate(['login'])
     }
   }
 
