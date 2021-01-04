@@ -14,7 +14,7 @@ export class PostviewComponent implements OnInit {
     author: "xxxxx",
     title: "xxxxxx",
     discription: "xxxxx",
-    model_pic: "http://localhost:8000/media/pic_folder/IMG_9044-scaled.jpg",
+    model_pic: "media url",
     content: "xxxx",
     created_date: "2020-12-07T17:34:30Z",
     subscription: [1],

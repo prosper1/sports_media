@@ -1,2 +1,41 @@
 <app-nav></app-nav>
+<section class="section">
+    <div class="container">
+        <br><br>
+        <h4>SPORTS REVIEWS & ANALYSIS</h4>
+        
+        <div class="row">
+            <div *ngFor="let item of reviews" class="col-lg-6 col-12 mb-4 pb-2">
+                <div class="card blog rounded border-0 shadow overflow-hidden">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-md-6">
+                            <img src="{{item.model_pic}}" class="img-fluid" alt="">
+                            <div class="overlay bg-dark"></div>
+                            <div class="author">
+                                <small class="text-light user d-block"><i class="mdi mdi-account"></i> {{item.author}}</small>
+                                <small class="text-light date"><i class="mdi mdi-calendar-check"></i> {{item.created_date | date:'mediumDate' }}</small>
+                            </div>
+                        </div><!--end col-->
+
+                        <div class="col-md-6">
+                            <div class="card-body content">
+                                <h5><a routerLink="/reviews/view/{{item.id}}" class="card-title title text-dark">{{item.title}}</a></h5>
+                                <p class="text-muted mb-0">{{item.discription}}</p>
+                                <div (click)="goto(item.id)" class="post-meta d-flex justify-content-between mt-3">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="list-inline-item mr-2 mb-0"><a href="javascript:void(0)" class="text-muted like"><i class="mdi mdi-heart-outline mr-1"></i>--</a></li>
+                                        <li class="list-inline-item"><a (click)="goto(item.id)" class="text-muted comments"><i class="mdi mdi-comment-outline mr-1"></i>--</a></li>
+                                    </ul>
+                                    <a routerLink="/reviews/view/{{item.id}}" class="text-muted readmore">Read More <i class="mdi mdi-chevron-right"></i></a>
+                                </div>
+                            </div>
+                        </div><!--end col-->
+                    </div> <!--end row-->
+                </div><!--end blog post-->
+            </div><!--end col-->
+
+
+        </div><!--end row-->
+    </div><!--end container-->
+</section><!--end section -->
 <app-footer></app-footer>

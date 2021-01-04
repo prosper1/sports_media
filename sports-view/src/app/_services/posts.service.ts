@@ -54,4 +54,16 @@ export class PostsService {
       tap(_ => console.log('got predictions'))
     );
   }
+
+  getReviews(): Observable<any> {
+    return this.http.get(`${ApiUrl}reviews/`, httpOptions).pipe(
+      tap(_ => console.log('got reviews'))
+    );
+  }
+
+  getReview(postID: number): Observable<any> {
+    return this.http.get(`${ApiUrl}reviews/${postID}`, httpOptions).pipe(
+      tap(_ => console.log('got review'))
+    );
+  }
 }
