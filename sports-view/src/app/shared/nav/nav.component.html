@@ -3,9 +3,10 @@
     <div class="container">
         <!-- Logo container-->
         <a class="logo" href="index-2.html">SportsRoulette<span class="text-primary">.</span></a>
-        <div class="buy-button">
-            <a href="/" target="_blank" class="btn btn-primary">login</a>
-        </div><!--end login button--><!--end login button-->
+        <div *ngIf="notLoggedIn" class="buy-button">
+            <a routerLink="/login" class="btn btn-primary">login</a>
+        </div>
+        <!--end login button--><!--end login button-->
         <!-- End Logo container-->
         <div class="menu-extras">
             <div class="menu-item">
@@ -37,7 +38,7 @@
                     <a routerLink="/predictions" routerLinkActive="active">Prediction</a>
                 </li>
                 <li class="has-submenu">
-                    <a href="#review">Sports debate</a>
+                    <a routerLink="/debate">Sports debate</a>
                 </li>
             </ul><!--end navigation menu-->
         </div><!--end navigation-->

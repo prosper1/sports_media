@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Post, Profile, Comments, Prediction
+from django.contrib.auth.models import User
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -68,4 +69,17 @@ class PredictionSerializer(serializers.ModelSerializer):
             'conclusion',
             'match_date',
             'actual_score'
+        )
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        models = User
+        fields = (
+            'id',
+            'username',
+            'first_name',
+            'last_name',
+            'email',
         )

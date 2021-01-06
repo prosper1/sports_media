@@ -11,6 +11,7 @@ import { PredictionDetailComponent } from './blog/prediction-detail/prediction-d
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AnalysisDetailComponent } from './blog/analysis-detail/analysis-detail.component';
+import { DabatedebatesComponent } from './dabatedebates/dabatedebates.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'reviews/view/:id', component: AnalysisDetailComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
+  { path: 'debate', component: DabatedebatesComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 

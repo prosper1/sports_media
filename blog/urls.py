@@ -6,6 +6,7 @@ from .views import (
     PredictionViewSet,
     MakeCommentViewSet,
     ReviewViewSet,
+    UserViewSet
 )
 from rest_framework.routers import DefaultRouter
 
@@ -17,5 +18,6 @@ api.register(r'add-comment', MakeCommentViewSet)
 api.register(r'reviews', ReviewViewSet)
 
 urlpatterns = [
-    path('', include(api.urls), name='api'),  
+    path('', include(api.urls), name='api'),
+    path('user/', UserViewSet.as_view(),name='user-api-endpoint'),  
 ]

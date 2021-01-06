@@ -20,7 +20,11 @@ import { PredictionDetailComponent } from './blog/prediction-detail/prediction-d
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { PostviewComponent } from './blog/postview/postview.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { DabatedebatesComponent } from './dabatedebates/dabatedebates.component';
+import { DabatedebateDetailsComponent } from './dabatedebate-details/dabatedebate-details.component';
+import { DabateaddArgumentComponent } from './dabateadd-argument/dabateadd-argument.component';
+import { DabateargumentsComponent } from './dabatearguments/dabatearguments.component';
+import * as $ from 'jquery';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AddCommentComponent,
     AnalysisDetailComponent,
     PredictionDetailComponent,
-    PostviewComponent
+    PostviewComponent,
+    DabatedebatesComponent,
+    DabatedebateDetailsComponent,
+    DabateaddArgumentComponent,
+    DabateargumentsComponent
   ],
   imports: [
     BrowserModule,
