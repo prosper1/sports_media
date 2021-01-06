@@ -2,7 +2,7 @@
 <header id="topnav" class="defaultscroll sticky">
     <div class="container">
         <!-- Logo container-->
-        <a class="logo" href="index-2.html">SportsRoulette<span class="text-primary">.</span></a>
+        <a class="logo" routerLink="home" routerLinkActive="active">SportsRoulette<span class="text-primary">.</span></a>
         <div *ngIf="notLoggedIn" class="buy-button">
             <a routerLink="/login" class="btn btn-primary">login</a>
         </div>
@@ -25,7 +25,7 @@
         <div id="navigation">
             <!-- Navigation Menu-->   
             <ul class="navigation-menu">
-                <li class="has-submenu active">
+                <li class="has-submenu">
                     <a routerLink="/home" routerLinkActive="active">Home</a>
                 </li>
                 <li class="has-submenu">
@@ -38,7 +38,7 @@
                     <a routerLink="/predictions" routerLinkActive="active">Prediction</a>
                 </li>
                 <li class="has-submenu">
-                    <a routerLink="/debate">Sports debate</a>
+                    <a routerLink="/debate" routerLinkActive="active">Sports debate</a>
                 </li>
             </ul><!--end navigation menu-->
         </div><!--end navigation-->

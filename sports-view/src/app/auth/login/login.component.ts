@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/_services/auth.service';
 import { PostsService } from 'src/app/_services/posts.service';
 
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private postService: PostsService,
+    private toast: ToastrService,
     ) { }
 
   ngOnInit(): void {
@@ -59,12 +61,12 @@ export class LoginComponent implements OnInit {
     .subscribe(res => {
       localStorage.setItem('token', res.key);
       this.router.navigate([this.returnUrl]);
-      // this.toast.showSuccess('Great', 'login Successful');
+      this.toast.success('Great', 'login Successful');
       this.getUser();
       console.log(res);
     }, err => {
       console.log(err);
-      // this.toast.showError('Oops', 'Something went wrong during login');
+      this.toast.error('Oops', 'Something went wrong during login');
       this.loading = false;
     });
   }

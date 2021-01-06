@@ -28,11 +28,7 @@ from rest_framework.views import APIView
 class CommentViewSet(viewsets.ModelViewSet):
 	serializer_class = CommentsSerializer
 	queryset = Comments.objects.all()
-	authentication_classes = [
-		SessionAuthentication,
-		BasicAuthentication,
-		TokenAuthentication,
-		]
+	
 	filter_backends = (DjangoFilterBackend, SearchFilter)
 	filter_fields = ('user','post')
 	http_method_names = ['get']

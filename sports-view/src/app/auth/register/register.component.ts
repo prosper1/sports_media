@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Toast, ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    // private toast: ToastService,
+    private toast: ToastrService,
     ) { }
 
   ngOnInit(): void {
@@ -60,13 +61,20 @@ export class RegisterComponent implements OnInit {
       this.authService.register(auth)
       .subscribe(res => {
         localStorage.setItem('token', res.key);
-        // this.toast.showSuccess('Great', 'Successfully registered');
+        this.getUser();
+        this.toast.success('Great', 'Successfully registered');
         this.router.navigate([this.returnUrl]);
-        console.log(res);
       }, err => {
-        console.log(err);
+        this.toast.error('Oops', 'Soemthing happened, registration failed. ');
         this.loading = false;
         // this.toast.showError('Oops', 'Could not register');
+      });
+    }
+
+    getUser(): void {
+      this.authService.user().subscribe(data => {
+        localStorage.setItem('userId', data.id);
+        localStorage.setItem('user',JSON.stringify(data));
       });
     }
 }

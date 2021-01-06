@@ -9,9 +9,6 @@ const httpOptions = {
 
 const token = 'Token ' + localStorage.getItem('token');
 
-const userHttpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json','Authorization': token})
-};
 
 const apiUrl = 'http://localhost:8000/';
 
@@ -44,7 +41,7 @@ export class AuthService {
   }
 
   user(): Observable<any> {
-    return this.http.get(apiUrl + 'rest-auth/user/', userHttpOptions).pipe(
+    return this.http.get(apiUrl + 'api/user/', httpOptions).pipe(
       tap(_ => console.log('got user'))
     );
   }

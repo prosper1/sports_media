@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { PostsService } from 'src/app/_services/posts.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class AddCommentComponent implements OnInit {
     private formBuilder: FormBuilder,
     private postService: PostsService,
     private router: Router,
+    private toast: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -32,17 +34,19 @@ export class AddCommentComponent implements OnInit {
 
   onSubmit(): void {
     if (localStorage.getItem('token') || localStorage.getItem('userId')) {
+      const user = JSON.parse(localStorage.getItem('user'));
       const payload = {
-        user: localStorage.getItem('userId'),
+        user: user.id,
         content: this.f.comment.value,
         post: this.postData
       }
       this.postService.addComments(payload).subscribe( res => {
-        
+        this.toast.success('success','comment posted');
+        this.f.comment.setValue("");
       });
     }
     else {
-      this.router.navigate(['login'])
+      this.router.navigate(['login']);
     }
   }
 

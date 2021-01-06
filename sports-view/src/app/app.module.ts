@@ -25,6 +25,9 @@ import { DabatedebateDetailsComponent } from './dabatedebate-details/dabatedebat
 import { DabateaddArgumentComponent } from './dabateadd-argument/dabateadd-argument.component';
 import { DabateargumentsComponent } from './dabatearguments/dabatearguments.component';
 import * as $ from 'jquery';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -54,6 +57,8 @@ import * as $ from 'jquery';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     {
