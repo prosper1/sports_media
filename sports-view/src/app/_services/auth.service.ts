@@ -10,7 +10,7 @@ const httpOptions = {
 const token = 'Token ' + localStorage.getItem('token');
 
 
-const apiUrl = 'http://localhost:8000/';
+const apiUrl = 'https://clearhouse.pythonanywhere.com/';
 
 @Injectable({
   providedIn: 'root'

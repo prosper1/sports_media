@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate([this.returnUrl]);
       this.toast.success('Great', 'login Successful');
       this.getUser();
-      console.log(res);
+      console.log(res.status);
     }, err => {
       console.log(err);
       this.toast.error('Oops', 'Something went wrong during login');

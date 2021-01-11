@@ -28,6 +28,7 @@ import * as $ from 'jquery';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ToastrModule } from 'ngx-toastr';
     DabatedebatesComponent,
     DabatedebateDetailsComponent,
     DabateaddArgumentComponent,
-    DabateargumentsComponent
+    DabateargumentsComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

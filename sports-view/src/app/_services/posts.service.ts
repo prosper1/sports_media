@@ -8,7 +8,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const ApiUrl = 'http://localhost:8000/api/';
+const ApiUrl = 'https://clearhouse.pythonanywhere.com/api/';
 
 @Injectable({
   providedIn: 'root'
