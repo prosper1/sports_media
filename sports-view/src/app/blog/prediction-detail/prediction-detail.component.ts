@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostsService } from 'src/app/_services/posts.service';
 
@@ -23,6 +24,8 @@ export class PredictionDetailComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private postService: PostsService,
+    private title: Title,
+    private metaTagService: Meta
   ) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -39,6 +42,12 @@ export class PredictionDetailComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.title.setTitle(
+      this.sharedData.team1 + '-VS-' + this.sharedData.team2 + ' | Sports Roulette');
+    this.metaTagService.updateTag({
+       name: 'description',
+       content: this.sharedData.introduction
+      });
   }
 
 }

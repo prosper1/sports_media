@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { NavigationExtras, Router } from '@angular/router';
 import { PostsService } from 'src/app/_services/posts.service';
 
@@ -12,10 +13,16 @@ export class AnalysisComponent implements OnInit {
   constructor(
     private router: Router,
     private postService: PostsService,
+    private title: Title,
+    private metaTagService: Meta
   ) { }
 
   ngOnInit(): void {
     this.getReviews()
+    this.title.setTitle('Sports Reviews and Analysis | Sports Roulette');
+    this.metaTagService.updateTag(
+      { name: 'description', content: "Analyzing post sport matches" }
+    );
   }
 
   getReviews(): void{

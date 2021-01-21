@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { NavigationExtras, Router } from '@angular/router';
 import { PostsService } from 'src/app/_services/posts.service';
 
@@ -13,10 +14,16 @@ export class PredictionComponent implements OnInit {
   constructor(
     private postService: PostsService,
     private router: Router,
+    private title: Title,
+    private metaTagService: Meta
   ) { }
 
   ngOnInit(): void {
     this.getPredictions()
+    this.title.setTitle('View Sports Prediction | Sports Roulette');
+    this.metaTagService.updateTag(
+      { name: 'description', content: 'Get the odds of your favourite team through our predictions' }
+    );
   }
 
 
