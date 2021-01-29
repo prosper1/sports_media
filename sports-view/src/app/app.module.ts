@@ -31,6 +31,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { Router } from "@angular/router";
 import * as Sentry from "@sentry/angular";
+import { PolicyComponent } from './extra/policy/policy.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,8 @@ import * as Sentry from "@sentry/angular";
     DabatedebateDetailsComponent,
     DabateaddArgumentComponent,
     DabateargumentsComponent,
-    LoaderComponent
+    LoaderComponent,
+    PolicyComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +66,8 @@ import * as Sentry from "@sentry/angular";
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {
