@@ -16,6 +16,7 @@ export class PostsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getPosts()
   }
 
   goto(id: any, name: any): void {
@@ -28,7 +29,7 @@ export class PostsComponent implements OnInit {
     this.router.navigate(['post-details', id], navigationExtras);
   }
 
-  products(): void {
+  getPosts(): void {
     this.postService.getPosts().subscribe(
       data => {
         this.posts = data;
