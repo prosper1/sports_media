@@ -12,6 +12,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AnalysisDetailComponent } from './blog/analysis-detail/analysis-detail.component';
 import { DabatedebatesComponent } from './dabatedebates/dabatedebates.component';
+import { PolicyComponent } from './extra/policy/policy.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'debate', component: DabatedebatesComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'policy', component: PolicyComponent},
 ];
 
 @NgModule({
