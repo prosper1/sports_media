@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
 
   getPosts(): void{
     this.postService.getPosts().subscribe(data => {
-      this.posts = data;
+      this.posts = data.slice(0,4);
     });
   }
 

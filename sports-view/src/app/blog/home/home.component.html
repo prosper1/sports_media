@@ -6,7 +6,7 @@
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-7">
                 <div class="title-heading">
-                    <h1 class="font-weight-bold">We Talk<span class="text-primary">Sports.</span></h1>
+                    <h1 class="font-weight-bold">We Talk <span class="text-primary">Sports.</span></h1>
                     <h4 class="heading font-weight-bold mb-3">Welcome To <span class="element text-primary" data-elements=" ">SportsRoulette</span></h4>
                     <p class="para-desc text-muted">Were we discuss, <span class="text-primary font-weight-bold">Analyze</span> and predict sports. created for sports enthusiasts.</p>
                 </div>
@@ -25,7 +25,7 @@
             <div class="row">
                 <app-loader></app-loader>
                 <div *ngFor="let item of posts" class="col-md-6 col-12">
-                    <div (click)="goto(item.id)" class="demos-box text-center">
+                    <div (click)="goto(item.id)" class="demos-box text-center space">
                         <a (click)="goto(item.id)" target="_blank">
                             <img src="{{item.model_pic}}" class="img-fluid rounded" alt="demo-img">
                         </a>
@@ -35,6 +35,8 @@
 
                 
             </div><!--end row-->
+            <hr>
+            <a routerLink="/posts" routerLinkActive="active" class="btn btn-primary"> show more </a>
         </div>
     </div>
 
