@@ -23,6 +23,7 @@
     <div class="container">
         <div class="bg-light shadow rounded px-4 py-5 p-md-5">
             <div class="row">
+                <app-loader></app-loader>
                 <div *ngFor="let item of posts" class="col-md-6 col-12">
                     <div (click)="goto(item.id)" class="demos-box text-center">
                         <a (click)="goto(item.id)" target="_blank">
