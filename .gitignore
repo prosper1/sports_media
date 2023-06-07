@@ -1,2 +1,25 @@
 .pyc
 settings.py
+# OSX
+# 
+.DS_Store
+.vscode
+
+# Python
+#
+celerybeat-schedule
+env
+env2.7
+*.pyc
+db.sqlite3
+pydocs.py
+
+# Django
+/static
+/images
+/shared/media/uploads
+/shared/media/terms_and_conditions
+/shared/media/pdf_documents
+
+# Node
+node_modules
