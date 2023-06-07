@@ -34,7 +34,7 @@ class Category(MPTTModel):
         ordering = ('tree_id', 'level')
 
     name = models.CharField(max_length=150, verbose_name="category")
-    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True ,on_delete=True)
+    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True ,on_delete=models.CASCADE)
 
     class MPTTMeta:
         order_insertion_py = ['name']
