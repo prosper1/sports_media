@@ -13,7 +13,7 @@ env2.7
 *.pyc
 db.sqlite3
 pydocs.py
-
+*.sqlite3
 # Django
 /static
 /images
